@@ -20,7 +20,7 @@
     "deploy": "gh-pages -d gh-pages"
   },
   "repository": {
-    "url": ""
+    "url": "https://github.com/ZaninAndrea/react-language-select"
   },
   "author": {
     "name": "Andrea Zanin",
