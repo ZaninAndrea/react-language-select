@@ -8,7 +8,7 @@ class LanguageSwitch extends Component {
   };
 
   render() {
-    return this.props[this.context.language];
+    return this.props[this.context.language]  || "";
   }
 }
 

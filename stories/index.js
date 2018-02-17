@@ -94,8 +94,54 @@ storiesOf("LanguageSwitch", module)
 </LanguageProvider>`}</SyntaxHighlighter>
       </div>
     ))
-  );
+  )
+  .add(
+    "unsupported language",
+    withState({ language: "english" }, store => (
+      <div>
+        <LanguageProvider currentLanguage={store.state.language}>
+          <div>
+            <LanguageSwitch english="hello!" italian="ciao!" />
+            <br />
 
+            <button
+              onClick={() =>
+                store.set({
+                  language:
+                    store.state.language === "spanish" ? "english" : "spanish"
+                })
+              }
+            >
+              switch to{" "}
+              {store.state.language === "spanish" ? "english" : "spanish"}
+            </button>
+            <br/>
+            If the language is not supported an empty string will be rendered
+          </div>
+        </LanguageProvider>
+        <SyntaxHighlighter
+          language="jsx"
+          style={solarizedDark}
+        >{`<LanguageProvider currentLanguage={this.state.language}>
+  <div>
+    <LanguageSwitch english="hello!" italian="ciao!" />
+    <br />
+
+    <button
+      onClick={() =>
+        this.setState(({language})=>({
+          language: language === "spanish" ? "english" : "spanish"
+        }))
+      }
+    >
+      switch to {this.state.language === "spanish" ? "english" : "spanish"}
+    </button>
+  </div>
+</LanguageProvider>`}</SyntaxHighlighter>
+      </div>
+    ))
+  )
+  
 storiesOf("LanguageIf", module).add(
   "with react component",
   withState({ language: "english" }, store => (
